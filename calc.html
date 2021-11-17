@@ -1,0 +1,824 @@
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Wed Nov 10 2021 19:24:26 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="6185a3e78612f6f58f32ad2a" data-wf-site="617ae58a49989dffa204b3ce">
+
+<head>
+    <meta charset="utf-8">
+    <title>Isket Plataforma</title>
+    <meta content="Isket Plataforma" property="og:title">
+    <meta content="Isket Plataforma" property="twitter:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Webflow" name="generator">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/webflow.css" rel="stylesheet" type="text/css">
+    <link href="css/isket.webflow.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script
+        type="text/javascript">WebFont.load({ google: { families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"] } });</script>
+    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+    <script
+        type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="images/webclip.png" rel="apple-touch-icon">
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .content {
+            overflow-x: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app" class="app">
+        <div class="fix-align">
+            <div class="plano-container">
+                <div class="ui-card">
+                    <div class="plano">
+                        <div class="plano-wrapper"><img src="images/plano_1_icon.svg" loading="lazy" alt=""
+                                class="plano-icon">
+                            <h3 class="plano-title">Isket Básico</h3>
+                            <ul role="list" class="plano-list-container">
+                                <li data-w-id="804f873f-8dbf-3e51-ba0f-ae2271d40c55" class="plano-list">1 usuário</li>
+                                <li data-w-id="804f873f-8dbf-3e51-ba0f-ae2271d40c57" class="plano-list">3 cidades</li>
+                                <li data-w-id="804f873f-8dbf-3e51-ba0f-ae2271d40c59" class="plano-list">30 laudos de
+                                    avaliação</li>
+                                <li data-w-id="804f873f-8dbf-3e51-ba0f-ae2271d40c5b" class="plano-list">300 consultas de
+                                    moradores
+                                </li>
+                                <li data-w-id="804f873f-8dbf-3e51-ba0f-ae2271d40c5d" class="plano-list">Consultas
+                                    particulares</li>
+                                <li data-w-id="804f873f-8dbf-3e51-ba0f-ae2271d40c5f" class="plano-list">Consultas
+                                    avaliativas</li>
+                                <li data-w-id="804f873f-8dbf-3e51-ba0f-ae2271d40c61" class="plano-list">Radar de
+                                    oportunidades</li>
+                            </ul>
+                            <p class="plano-bold">Pacotes adicionais:</p>
+                        </div>
+                        <div class="adicionais-container">
+                            <div class="adicional" :class="isAdded.basico.laudos">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('laudos', 'basico')}} laudos de avaliação
+                                    </p>
+                                    <div class="info"></div>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('laudos', 'basico')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.basico.laudos}}</p>
+                                    <div @click="sum('laudos', 'basico')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional" :class="isAdded.basico.consultas">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('consultas', 'basico')}} consultas de
+                                        moradores</p>
+                                    <div class="info"></div>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('consultas', 'basico')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.basico.consultas}}</p>
+                                    <div @click="sum('consultas', 'basico')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional" :class="isAdded.basico.usuario">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('usuario', 'basico')}} usuário</p>
+
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('usuario', 'basico')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.basico.usuario}}</p>
+                                    <div @click="sum('usuario', 'basico')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional last" :class="isAdded.basico.cidade">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('usuario', 'basico')}} cidade adicional
+                                    </p>
+
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('cidade', 'basico')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.basico.cidade}}</p>
+                                    <div @click="sum('cidade', 'basico')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plano-bottom">
+                            <div class="plano-bottom-left">
+                                <p class="plano-bold">Total:</p>
+                                <h4 class="plano-preco">R$ {{valor.basico}},00</h4>
+                            </div>
+                            <a @click="setForm('basico')" class="button w-button">Assinar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-card">
+                    <div class="plano">
+                        <div class="plano-wrapper">
+                            <div class="popular-container">
+                                <div class="popular-wrapper"><img src="images/estrela_branca_icon.svg" loading="lazy" alt=""
+                                        class="popular-icon"></div>
+                                <p class="popular-txt">Plano mais vendido</p>
+                            </div><img src="images/plano_2_icon.svg" loading="lazy" alt="" class="plano-icon">
+                            <h3 class="plano-title">Isket Pro</h3>
+                            <ul role="list" class="plano-list-container">
+                                <li data-w-id="d953065c-1c08-30be-32f4-5ff027e6b801" class="plano-list">3 usuários</li>
+                                <li data-w-id="d953065c-1c08-30be-32f4-5ff027e6b803" class="plano-list">5 cidades</li>
+                                <li data-w-id="d953065c-1c08-30be-32f4-5ff027e6b805" class="plano-list">120 laudos de
+                                    avaliação</li>
+                                <li data-w-id="d953065c-1c08-30be-32f4-5ff027e6b807" class="plano-list">500 consultas de
+                                    moradores
+                                </li>
+                                <li data-w-id="d953065c-1c08-30be-32f4-5ff027e6b809" class="plano-list">Consultas
+                                    particulares</li>
+                                <li data-w-id="d953065c-1c08-30be-32f4-5ff027e6b80b" class="plano-list">Consultas
+                                    avaliativas</li>
+                                <li data-w-id="d953065c-1c08-30be-32f4-5ff027e6b80d" class="plano-list">Radar de
+                                    oportunidades</li>
+                            </ul>
+                            <p class="plano-bold">Pacotes adicionais:</p>
+                        </div>
+                        <div class="adicionais-container">
+                            <div class="adicional" :class="isAdded.pro.laudos">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('laudos', 'pro')}} laudos de avaliação
+                                    </p>
+                                    <div class="info"></div>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('laudos', 'pro')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.pro.laudos}}</p>
+                                    <div @click="sum('laudos', 'pro')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional" :class="isAdded.pro.consultas">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('consultas', 'pro')}} consultas de
+                                        moradores</p>
+                                    <div class="info"></div>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('consultas', 'pro')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.pro.consultas}}</p>
+                                    <div @click="sum('consultas', 'pro')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional" :class="isAdded.pro.usuario">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('usuario', 'pro')}} usuário</p>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('usuario', 'pro')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.pro.usuario}}</p>
+                                    <div @click="sum('usuario', 'pro')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional last" :class="isAdded.pro.cidade">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('cidade', 'pro')}} cidade adicional</p>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('cidade', 'pro')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.pro.cidade}}</p>
+                                    <div @click="sum('cidade', 'pro')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plano-bottom">
+                            <div class="plano-bottom-left">
+                                <p class="plano-bold">Total:</p>
+                                <h4 class="plano-preco">R$ {{valor.pro}},00</h4>
+                            </div>
+                            <a @click="setForm('pro')" class="button w-button">Assinar </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-card">
+                    <div class="plano">
+                        <div class="plano-wrapper"><img src="images/plano_3_icon.svg" loading="lazy" alt=""
+                                class="plano-icon">
+                            <h3 class="plano-title">Isket Deluxe</h3>
+                            <ul role="list" class="plano-list-container">
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d2197523" class="plano-list">8 usuários</li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d2197525" class="plano-list">10 cidades
+                                </li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d2197527" class="plano-list">300 laudos de
+                                    avaliação
+                                </li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d2197529" class="plano-list">900 consultas de
+                                    moradores
+                                </li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d219752b" class="plano-list">Consultas
+                                    particulares</li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d219752d" class="plano-list">Consultas
+                                    avaliativas</li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d219752f" class="plano-list">Radar de
+                                    oportunidades</li>
+                            </ul>
+                            <p class="plano-bold">Pacotes adicionais:</p>
+                        </div>
+                        <div class="adicionais-container">
+                            <div class="adicional" :class="isAdded.deluxe.laudos">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('laudos', 'deluxe')}} laudos de avaliação
+                                    </p>
+                                    <div class="info"></div>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('laudos', 'deluxe')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.deluxe.laudos}}</p>
+                                    <div @click="sum('laudos', 'deluxe')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional" :class="isAdded.deluxe.consultas">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('consultas', 'deluxe')}} consultas de
+                                        moradores</p>
+                                    <div class="info"></div>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('consultas', 'deluxe')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.deluxe.consultas}}</p>
+                                    <div @click="sum('consultas', 'deluxe')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional" :class="isAdded.deluxe.usuario">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('usuario', 'deluxe')}} usuário</p>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('usuario', 'deluxe')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.deluxe.usuario}}</p>
+                                    <div @click="sum('usuario', 'deluxe')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional" :class="isAdded.deluxe.cidade">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('cidade', 'deluxe')}} cidade adicional
+                                    </p>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('cidade', 'deluxe')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.deluxe.cidade}}</p>
+                                    <div @click="sum('cidade', 'deluxe')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plano-bottom">
+                            <div class="plano-bottom-left">
+                                <p class="plano-bold">Total:</p>
+                                <h4 class="plano-preco">R$ {{valor.deluxe}},00</h4>
+                            </div>
+                            <a @click="setForm('deluxe')" class="button w-button">Assinar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-card enterprise">
+                    <div class="plano">
+                        <div class="plano-wrapper"><img src="images/plano_4_icon.svg" loading="lazy" alt=""
+                                class="plano-icon enterprise">
+                            <h3 class="plano-title">Isket Enterprise</h3>
+                            <ul role="list" class="plano-list-container">
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d2197523" class="plano-list">15 usuários</li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d2197525" class="plano-list">Cidades ilimitadas
+                                </li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d2197527" class="plano-list">1000 laudos de
+                                    avaliação
+                                </li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d2197529" class="plano-list">2000 consultas de
+                                    moradores
+                                </li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d219752b" class="plano-list">Consultas
+                                    particulares</li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d219752d" class="plano-list">Consultas
+                                    avaliativas</li>
+                                <li data-w-id="a05f93de-879d-86fc-0d91-5837d219752f" class="plano-list">Radar de
+                                    oportunidades</li>
+                            </ul>
+                            <p class="plano-bold">Pacotes adicionais:</p>
+                        </div>
+                        <div class="adicionais-container">
+                            <div class="adicional" :class="isAdded.enterprise.laudos">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('laudos', 'enterprise')}} laudos de
+                                        avaliação</p>
+                                    <div class="info"></div>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('laudos', 'enterprise')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.enterprise.laudos}}</p>
+                                    <div @click="sum('laudos', 'enterprise')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional" :class="isAdded.enterprise.consultas">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('consultas', 'enterprise')}} consultas de
+                                        moradores</p>
+                                    <div class="info"></div>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('consultas', 'enterprise')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.enterprise.consultas}}</p>
+                                    <div @click="sum('consultas', 'enterprise')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                            <div class="adicional menor" :class="isAdded.enterprise.usuario">
+                                <div class="adicional-left">
+                                    <p class="adicional-txt">+ {{trackDisplayValue('usuario', 'enterprise')}} usuário</p>
+                                </div>
+                                <div class="adicional-btn-container">
+                                    <div @click="sub('usuario', 'enterprise')" class="adicional-btn minus"></div>
+                                    <p class="adicional-quantidade">{{quantidade.enterprise.usuario}}</p>
+                                    <div @click="sum('usuario', 'enterprise')" class="adicional-btn plus"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plano-bottom">
+                            <div class="plano-bottom-left">
+                                <p class="plano-bold">Total:</p>
+                                <h4 class="plano-preco">R$ {{valor.enterprise}},00</h4>
+                            </div>
+                            <a @click="setForm('enterprise')" class="button w-button">Assinar</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div v-if="isVisible" class="plano-form-container">
+            <div class="form-block w-form plano-form-wrapper">
+                <form @submit.prevent="sendForm(formData.planoAtivo)"  id="email-form" name="email-form" data-name="Email Form" method="post" class="form plano-form">
+                    <div class="form-row">
+                        <div class="form-input"><label for="Text" class="label plano-label">Nome</label><input v-model="formData.nome"
+                                type="text" class="input w-input plano-input" maxlength="256" name="Nome"
+                                data-name="Nome" placeholder="Seu nome" id="Nome" required=""></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-input"><label for="Email" class="label plano-label">E-mail</label><input v-model="formData.email"
+                                type="email" class="input w-input plano-input" maxlength="256" name="Email"
+                                data-name="Email" placeholder="Seu melhor e-mail" id="Empresa"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-input"><label for="Telefone" class="label plano-label">Telefone</label><input v-model="formData.telefone"
+                                type="text" class="input w-input plano-input" maxlength="256" name="Telefone"
+                                data-name="Telefone" placeholder="Seu telefone para contato" id="Telefone"></div>
+                    </div>
+
+                    <div class="form-row enviar plano-enviar"><input type="submit" value="Enviar" data-wait="Aguarde..."
+                            class="button forn-btn w-button plano-button"></div>
+                </form>
+                <div class="w-form-done">
+                    <div>Thank you! Your submission has been received!</div>
+                </div>
+                <div class="w-form-fail">
+                    <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+
+    <style scoped>
+        .app {
+            margin-left: 2vw;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .fix-align {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        @media screen and (max-width: 820px) {
+            .app {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              margin-left: 0;
+            }
+            .fix-align {
+                justify-content: center;
+                max-width: 60vw;
+                padding-left: 20vw;
+            }
+        }
+
+        @media screen and (max-width: 479px) {
+            .fix-align {
+                padding-left: 30vw;
+            }
+        }
+
+        .plano-form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .plano-form-wrapper {
+            position: absolute;
+            z-index: 3;
+            padding: 0;
+        }
+
+        .plano-form {
+            padding: 30px;
+            width: 300px;
+        }
+
+        .plano-left {
+            margin-right: 20px;
+        }
+
+        .plano-container {
+            display: flex;
+            position: absolute;
+        }
+
+        .plano-form-container .plano-button {
+            width: 80%;
+        }
+
+        .plano-input {
+            height: 40px;
+        }
+
+        .plano-label {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .plano-form-container .plano-enviar {
+            justify-content: center;
+        }
+
+        .plano-container .ui-card {
+            position: relative;
+            z-index: 1;
+            transform: scale(0.6) translateY(-2rem);
+            opacity: 0;
+            cursor: pointer;
+            pointer-events: none;
+            transition: 200ms;
+        }
+
+        .plano-container .ui-card:nth-child(0):before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 3rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .plano-container .ui-card:nth-child(1):before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 3rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .plano-container .ui-card:nth-child(2):before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 3rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .plano-container .ui-card:nth-child(3):before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 3rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .plano-container .ui-card:nth-child(4):before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 3rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .plano-container .ui-card:nth-child(5):before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 3rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .plano-container .ui-card.active {
+            display: initial;
+            z-index: 3;
+            transform: scale(1) translateY(0) translateX(0);
+            opacity: 1;
+            pointer-events: auto;
+            transition: 600ms;
+            margin: 0 -30px;
+        }
+
+        .plano-container .ui-card.prev,
+        .plano-container .ui-card.next {
+            display: initial;
+            z-index: 2;
+            transform: scale(0.8) translateY(-1rem) translateX(0);
+            opacity: 0.6;
+            pointer-events: auto;
+            transition: 600ms;
+        }
+    </style>
+    
+
+    <!--VUE APP-->
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+        let app = Vue.createApp({
+
+            data: function () {
+                return {
+                    valor: {
+                        basico: 150,
+                        pro: 300,
+                        deluxe: 500,
+                        enterprise: 1000
+                    },
+                    quantidade: {
+                        basico: {
+                            laudos: 0,
+                            consultas: 0,
+                            usuario: 0,
+                            cidade: 0
+                        },
+                        pro: {
+                            laudos: 0,
+                            consultas: 0,
+                            usuario: 0,
+                            cidade: 0
+                        },
+                        deluxe: {
+                            laudos: 0,
+                            consultas: 0,
+                            usuario: 0,
+                            cidade: 0
+                        },
+                        enterprise: {
+                            laudos: 0,
+                            consultas: 0,
+                            usuario: 0
+                        }
+                    },
+                    inicial: {
+                        laudos: 15,
+                        consultas: 100,
+                        usuario: 1,
+                        cidade: 1
+                    },
+                    precos: {
+                        basico: {
+                            laudos: 30,
+                            consultas: 40,
+                            usuario: 100,
+                            cidade: 20
+                        },
+                        pro: {
+                            laudos: 25,
+                            consultas: 35,
+                            usuario: 85,
+                            cidade: 15
+                        },
+                        deluxe: {
+                            laudos: 22,
+                            consultas: 30,
+                            usuario: 70,
+                            cidade: 10
+                        },
+                        enterprise: {
+                            laudos: 15,
+                            consultas: 20,
+                            usuario: 40
+                        }
+                    },
+                    isAdded: {
+                        basico: {
+                            laudos: '',
+                            consultas: '',
+                            usuario: '',
+                            cidade: ''
+                        },
+                        pro: {
+                            laudos: '',
+                            consultas: '',
+                            usuario: '',
+                            cidade: ''
+                        },
+                        deluxe: {
+                            laudos: '',
+                            consultas: '',
+                            usuario: '',
+                            cidade: ''
+                        },
+                        enterprise: {
+                            laudos: '',
+                            consultas: '',
+                            usuario: ''
+                        }
+                    },
+                    isVisible: false,
+                    formData: {
+                        planoAtivo: null,
+                        nome: null,
+                        email: null,
+                        telefone: null,
+                        empresa: null
+                    }
+
+                }
+            },
+            methods: {
+                sum(value, plano) {
+                    this.valor[plano] = this.valor[plano] + this.precos[plano][value]
+                    this.quantidade[plano][value] = this.quantidade[plano][value] + 1
+
+                    if (this.quantidade[plano][value] > 0) {
+                        this.isAdded[plano][value] = 'added'
+                    }
+                },
+                sub(value, plano) {
+                    if (this.quantidade[plano][value] > 0) {
+                        this.valor[plano] = this.valor[plano] - this.precos[plano][value]
+                        this.quantidade[plano][value] = this.quantidade[plano][value] - 1
+                    }
+
+                    if (this.quantidade[plano][value] == 0) {
+                        this.isAdded[plano][value] = ''
+                    }
+                },
+                trackDisplayValue(value, plano) {
+                    if (this.quantidade[plano][value] > 1) {
+                        return this.quantidade[plano][value] * this.inicial[value]
+                    }
+                    else {
+                        return this.inicial[value]
+                    }
+                },
+                setForm(plano) {
+                    this.formData.planoAtivo = plano
+                    if(this.isVisible) {
+                        this.isVisible = false
+                    }
+                    else if (!this.isVisible) {
+                        this.isVisible = true
+                    }
+                },
+                async sendForm(plano) {
+                    
+                    var data = {
+                        planoEscolhido: "Plano Isket " + plano.charAt(0).toUpperCase() + plano.slice(1),
+                        valor: this.valor[plano],
+                        adicionais: {
+                            laudos: 15 * this.quantidade[plano]['laudos'],
+                            consultas: 100 * this.quantidade[plano]['consultas'],
+                            usuario: this.quantidade[plano]['usuario'],
+                            cidade: this.quantidade[plano]['cidade']
+                        },
+                        dados: {
+                            nome: this.formData.nome,
+                            email: this.formData.email,
+                            telefone: this.formData.telefone
+                        },
+                        horario: new Date().toLocaleTimeString(),
+                        data: new Date().getDate().toString() + '/' + (new Date().getMonth() + 1).toString() + '/' + new Date().getFullYear().toString()
+                    }
+                    console.log(data)
+                    const requestOptions = {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(data)
+                    };
+
+
+                    if (plano != 'enterprise') {
+                        fetch("http://localhost:80/envio-de-formulario-planos", requestOptions)
+                            .then(async res => {
+                                console.log('recebemos uma resposta')
+                                resp = await res.json()
+                                console.log(resp)
+                            })
+                    }
+                    else if (plano == 'enterprise') {
+                        console.log('nhe')
+                    }
+                }
+            }
+        })
+        app.mount('#app')
+
+        async function post() {
+            await axios.post('https://localhost:80/envio-de-formulario-planos', data)
+                .then(async res => {
+                    console.log('recebemos uma resposta')
+                    resp = await res.json()
+                    console.log(resp)
+                })
+        }
+    </script>
+    <script src="/js/swipe.js"></script>
+    <script>
+        touchsurface = document.getElementById('app');
+        touchsurface.addEventListener("swap", function(event){alert('Swaped ' + event.detail.direction + ' at ' + event.target.id);}, false);
+
+        $num = $('.ui-card').length - 1;
+        $even = $num / 2;
+        $odd = ($num + 1) / 2;
+
+        if ($num % 2 == 0) {
+            $('.ui-card:nth-child(' + $even + ')').addClass('active');
+            $('.ui-card:nth-child(' + $even + ')').prev().addClass('prev');
+            $('.ui-card:nth-child(' + $even + ')').next().addClass('next');
+        } else {
+            $('.ui-card:nth-child(' + $odd + ')').addClass('active');
+            $('.ui-card:nth-child(' + $odd + ')').prev().addClass('prev');
+            $('.ui-card:nth-child(' + $odd + ')').next().addClass('next');
+        }
+
+        $('.ui-card').click(function () {
+            $slide = $('.active').width();
+
+            if ($(this).hasClass('next')) {
+                $('.plano-container').stop(false, true).animate({ left: '-=' + $slide });
+            } else if ($(this).hasClass('prev')) {
+                $('.plano-container').stop(false, true).animate({ left: '+=' + $slide });
+            }
+
+            $(this).removeClass('prev next');
+            $(this).siblings().removeClass('prev active next');
+
+            $(this).addClass('active');
+            $(this).prev().addClass('prev');
+            $(this).next().addClass('next');
+        });
+
+        //detect swipe
+        $('#app').onSwipe(function(results) {
+            console.log('swiped')
+            if(results.right == true) {
+                $('.active').prev().trigger('click');
+            }
+            if(results.left == true) {
+                $('.active').next().trigger('click');
+            }
+        })
+
+        // Keyboard nav
+        $('html body').keydown(function (e) {
+            if (e.keyCode == 37) { // left
+                $('.active').prev().trigger('click');
+            }
+            else if (e.keyCode == 39) { // right
+                $('.active').next().trigger('click');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
