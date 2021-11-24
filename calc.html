@@ -787,7 +787,7 @@
                         body: JSON.stringify(data)
                     };
 
-                    fetch("http://localhost:80/envio-de-formulario-planos", requestOptions)
+                    fetch("https://staging.isket.com.br/envio-de-formulario-planos", requestOptions)
                         .then(async res => {
                             console.log('recebemos uma resposta')
                             resp = await res.json()
