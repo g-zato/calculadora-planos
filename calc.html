@@ -32,7 +32,7 @@
     <div id="app" class="app">
         <div v-if="isVisible" class="plano-form-container">
             <div class="form-block w-form plano-form-wrapper">
-                <form @submit="sendForm(formData.planoAtivo)" id="email-form" name="email-form" action="/sucesso"
+                <form @submit="sendForm(formData.planoAtivo)" id="email-form" name="email-form" action="https://staging-api.isket.com.br/envio-de-formulario-planos"
                     data-name="Email Form" method="post" class="form plano-form">
                     <div @click="setForm(formData.planoAtivo)" class="button close-btn-wrapper">
                         <img class="close-btn"
